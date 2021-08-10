@@ -18,6 +18,3 @@ int main()
     cout << **q << endl; // value of a
     return 0;
 } 
-
-
-
