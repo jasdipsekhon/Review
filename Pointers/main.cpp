@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+int incrementByReference(int *x)
+{
+    *x++;
+}
 int main()
 {
     int a = 5;
@@ -16,5 +20,8 @@ int main()
     int **q = &p;
     cout << *q << endl; // address of a
     cout << **q << endl; // value of a
+    
+   incrementByReference(&x);
+   cout << x << endl;
     return 0;
 } 
