@@ -17,6 +17,7 @@ void *my_memcpy(void *dest, void *src, int n) {
     for (size_t i = 0; i < n; i++) {
         dest_ptr[i] = src_ptr[i];
     }
+    return dest;
 }
 
 void print_string(char *s) {
