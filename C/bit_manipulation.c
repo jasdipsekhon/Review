@@ -28,6 +28,10 @@ int hammingWeight(uint32_t n) {
     return count;
 }
 
+uint32_t invert_bit(uint32_t num, uint32_t bit_pos) {
+    return (num ^ (1 << bit_pos));
+}
+
 int main()
 {
     uint32_t n = 0b0100100100100100100100100100101;
