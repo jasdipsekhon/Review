@@ -7,6 +7,7 @@
 //#define STRCPY
 //#define STRCMP
 //#define STRCAT
+//#define STRSTR
 
 #ifdef MEMCPY
 void *my_memcpy(void *dest, void *src, int n) {
@@ -136,6 +137,32 @@ int main()
     char arr2[] = "Hello Worll";
     char* result = my_strcat(arr, arr2); 
     printf("%s\n", result);
+    return 0;
+}
+#endif
+
+#ifdef STRSTR
+char *my_strstr(char *haystack, char *needle) {
+    while (*haystack != '\0') {
+        char *haystack_ptr = haystack;
+        char *needle_ptr = needle;
+        while (*needle_ptr != '\0' && *haystack_ptr == *needle_ptr) {
+            haystack_ptr++;
+            needle_ptr++;
+        }
+        if (*needle_ptr == '\0') {
+            return (char *)haystack;
+        }
+        haystack++;
+    }  
+    return NULL;
+}
+
+int main() {
+    char arr[] = "Hello World";
+    char arr2[] = "World";
+    char *result = my_strstr(arr, arr2);
+    printf("%s", result);
     return 0;
 }
 #endif
