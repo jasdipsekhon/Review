@@ -5,6 +5,7 @@
 //#define MEMSET
 #define MEMCMP
 //#define STRCPY
+//#define STRCMP
 
 #ifdef MEMCPY
 void *my_memcpy(void *dest, void *src, int n) {
@@ -92,6 +93,26 @@ int main()
     char arr2[strlen(arr) + 1];
     my_strcpy(arr2, arr);
     printf("%s", arr2);
+    return 0;
+}
+#endif
+
+#ifdef STRCMP
+size_t my_strcmp(const char *s1, const char *s2, size_t n) {
+    for (int i = 0; i < n; i++) {
+        if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0') {
+            return s2[i] - s1[i];
+        }
+    }
+    return 0;
+}
+
+int main()
+{
+    char arr[] = "Hello World";
+    char arr2[] = "Hello Worll";
+    size_t cmp = my_strcmp(arr, arr2, strlen(arr)); 
+    printf("%ld\n", cmp);
     return 0;
 }
 #endif
