@@ -4,6 +4,7 @@
 //#define MEMCPY
 //#define MEMSET
 #define MEMCMP
+//#define STRCPY
 
 #ifdef MEMCPY
 void *my_memcpy(void *dest, void *src, int n) {
@@ -71,6 +72,27 @@ int main() {
     char *b = "Hello, Wodld";
     int result = my_memcmp(a, b, strlen(a));
     printf("%d\n", result);
+    return 0;
+}
+#endif
+
+#ifdef STRCPY
+char *my_strcpy(char *dest, char*src) {
+    char *src_ptr = src;
+    char *dest_ptr = dest;
+    for (int i = 0; src_ptr[i] != '\0'; i++) {
+        dest_ptr[i] = src_ptr[i];
+    }
+    dest_ptr[strlen(src)] = '\0';
+    return dest_ptr;
+}
+
+int main()
+{
+    char arr[] = "Hello World";
+    char arr2[strlen(arr) + 1];
+    my_strcpy(arr2, arr);
+    printf("%s", arr2);
     return 0;
 }
 #endif
