@@ -77,14 +77,13 @@ int main() {
 #endif
 
 #ifdef STRCPY
-char *my_strcpy(char *dest, char*src) {
+char *my_strcpy(char *dest, char *src) {
     char *src_ptr = src;
-    char *dest_ptr = dest;
     for (int i = 0; src_ptr[i] != '\0'; i++) {
-        dest_ptr[i] = src_ptr[i];
+        dest[i] = src_ptr[i];
     }
-    dest_ptr[strlen(src)] = '\0';
-    return dest_ptr;
+    dest[strlen(src)] = '\0';
+    return dest;
 }
 
 int main()
