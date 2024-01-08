@@ -8,6 +8,7 @@
 //#define STRCMP
 //#define STRCAT
 //#define STRSTR
+//#define STRTOK
 
 #ifdef MEMCPY
 void *my_memcpy(void *dest, void *src, int n) {
@@ -162,6 +163,26 @@ int main() {
     char arr[] = "Hello World";
     char arr2[] = "World";
     char *result = my_strstr(arr, arr2);
+    printf("%s", result);
+    return 0;
+}
+#endif
+
+#ifdef STRTOK
+char *my_strtok(char *s, char *delim) {
+    char *s_ptr = s;
+    while(*s != '\0') {
+        if (*s == *delim) {
+            return (char *)s;
+        }
+        s++;
+    }
+    return NULL;
+}
+int main() {
+    char arr[] = "Hello World";
+    char arr2[] = "W";
+    char *result = my_strtok(arr, arr2);
     printf("%s", result);
     return 0;
 }
