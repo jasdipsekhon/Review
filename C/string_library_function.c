@@ -9,6 +9,7 @@
 //#define STRCAT
 //#define STRSTR
 //#define STRTOK
+//#define ATOI
 
 #ifdef MEMCPY
 void *my_memcpy(void *dest, void *src, int n) {
@@ -184,6 +185,30 @@ int main() {
     char arr2[] = "W";
     char *result = my_strtok(arr, arr2);
     printf("%s", result);
+    return 0;
+}
+#endif
+
+#ifdef ATOI
+int my_atoi(char *s) {
+    char *s_ptr = s;
+    int sign = 0;
+    int result = 0;
+    if (*s_ptr == '-' || *s_ptr == '+') {
+        sign = (*s_ptr == '-') ? -1 : 1;
+        s_ptr++;
+    }
+    while (*s_ptr >= '0' && *s_ptr <= '9') {
+        result = result * 10 + (*s_ptr - '0');
+        s_ptr++;
+    }
+    return sign * result;
+}
+
+int main() {
+    char arr[] = "-256";
+    int result = my_atoi(arr);
+    printf("%d", result / 2);
     return 0;
 }
 #endif
